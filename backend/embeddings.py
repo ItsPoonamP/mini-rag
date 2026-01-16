@@ -10,9 +10,10 @@ def embed_text(text: str):
     """
     Returns an embedding vector using Gemini
     """
-    response = client.models.embed_content(
+    response = genai.models.embed_content(
         model="text-embedding-004",
         contents=text
     )
     return response.embeddings[0].values
+
 
