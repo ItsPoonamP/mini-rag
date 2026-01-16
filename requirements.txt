@@ -3,6 +3,9 @@ streamlit==1.53.0
 # PDF parsing
 pypdf>=3.17.0
 
+# Tokenization / chunking
+tiktoken>=0.6.0
+
 # Core
 numpy>=1.26
 pandas>=2.0
