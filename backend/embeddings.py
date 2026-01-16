@@ -1,5 +1,5 @@
 import os
-from google.genai import Client
+import google.generativeai as genai
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -15,3 +15,4 @@ def embed_text(text: str):
         contents=text
     )
     return response.embeddings[0].values
+
