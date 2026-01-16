@@ -8,3 +8,5 @@ tiktoken
 
 requests
 uuid
+
+pypdf>=3.0.0
