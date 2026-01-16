@@ -39,7 +39,7 @@ Passages:
 {passages}
 """
 
-    response = client.models.generate_content(model = "gemini-2.5-flash-lite", content = prompt)
+    response = genai.models.generate_content(model = "gemini-2.5-flash-lite", content = prompt)
 
     order = response.text.strip()
     indices = []
@@ -52,6 +52,7 @@ Passages:
 
     reranked = [chunks[i] for i in indices if i < len(chunks)]
     return reranked[:top_n]
+
 
 
 
