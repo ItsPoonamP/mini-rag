@@ -1,5 +1,5 @@
 import os
-import google as genai
+
 
 from dotenv import load_dotenv
 
@@ -9,6 +9,9 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 
 def rerank(query: str, chunks: list, top_n: int = 5):
+    import google.generativeai as genai  
+
+    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
     """
     Reranks retrieved chunks using Gemini.
     chunks = Pinecone matches (with metadata.text)
@@ -49,6 +52,7 @@ Passages:
 
     reranked = [chunks[i] for i in indices if i < len(chunks)]
     return reranked[:top_n]
+
 
 
 
