@@ -1,7 +1,7 @@
 streamlit==1.53.0
 
 # Gemini
-google-genai
+google-generativeai>=0.8.3
 
 # Vector DB
 pinecone>=3.0.0
@@ -20,5 +20,3 @@ tenacity>=8.2
 
 # Utils
 python-dotenv>=1.0.0
-
-
