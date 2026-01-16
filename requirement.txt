@@ -1,12 +1,20 @@
-streamlit
-python-dotenv
-pypdf
-pinecone-client
-google-genai
-openai
-tiktoken
+streamlit==1.53.0
 
-requests
-uuid
+# PDF parsing
+pypdf>=3.17.0
 
-pypdf>=3.0.0
+# Core
+numpy>=1.26
+pandas>=2.0
+requests>=2.31
+tenacity>=8.2
+
+# Vector DB
+pinecone-client>=3.0.0
+
+# LLMs
+google-generativeai>=0.7.0
+groq>=0.11.0
+
+# Utils
+python-dotenv>=1.0.0
