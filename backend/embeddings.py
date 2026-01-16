@@ -13,9 +13,10 @@ def embed_text(text: str):
     """
     response = genai.embed_content(
         model="text-embedding-004",
-        contents=text
+        content=text
     )
     return response.embeddings[0].values
+
 
 
 
