@@ -4,7 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = Client(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
 
 def embed_text(text: str):
     """
@@ -15,5 +16,6 @@ def embed_text(text: str):
         contents=text
     )
     return response.embeddings[0].values
+
 
 
