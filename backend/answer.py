@@ -29,9 +29,10 @@ Question:
 {query}
 """
 
-    response = genai.models.generate_content(model ="gemini-2.5-pro",content=prompt )
+    response = genai.models.generate_content(model ="gemma-3-12b-it",content=prompt )
 
     return response.text, citations
+
 
 
 
