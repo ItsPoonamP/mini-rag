@@ -13,7 +13,8 @@ requests>=2.31
 tenacity>=8.2
 
 # Vector DB
-pinecone-client>=3.0.0
+pinecone>=3.0.0
+
 
 # LLMs
 google-generativeai>=0.7.0
@@ -21,3 +22,4 @@ groq>=0.11.0
 
 # Utils
 python-dotenv>=1.0.0
+
