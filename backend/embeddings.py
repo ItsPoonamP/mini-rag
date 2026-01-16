@@ -15,7 +15,8 @@ def embed_text(text: str):
         model="text-embedding-004",
         content=text
     )
-    return response.embeddings[0].values
+    return response["embedding"]
+
 
 
 
