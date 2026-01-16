@@ -38,8 +38,9 @@ Query:
 Passages:
 {passages}
 """
-
-    response = genai.models.generate_content(model = "gemini-2.5-flash-lite", content = prompt)
+model = genai.GenerativeModel("gemini-2.5-flash-lite")
+response = model.generate_content(prompt)
+   
 
     order = response.text.strip()
     indices = []
@@ -52,6 +53,7 @@ Passages:
 
     reranked = [chunks[i] for i in indices if i < len(chunks)]
     return reranked[:top_n]
+
 
 
 
