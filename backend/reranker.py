@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 
 def rerank(query: str, chunks: list, top_n: int = 5):
@@ -36,7 +36,7 @@ Passages:
 {passages}
 """
 
-    response = genai.models.generate_content(model = "gemini-2.5-flash-lite", content = prompt)
+    response = client.models.generate_content(model = "gemini-2.5-flash-lite", content = prompt)
 
     order = response.text.strip()
     indices = []
@@ -49,6 +49,7 @@ Passages:
 
     reranked = [chunks[i] for i in indices if i < len(chunks)]
     return reranked[:top_n]
+
 
 
 
