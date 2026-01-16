@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+model = genai.GenerativeModel("gemini-2.5-flash-lite")
 def generate_answer(query, retrieved_chunks):
     if not retrieved_chunks:
         return "I couldn’t find relevant information.", []
@@ -29,10 +29,8 @@ Question:
 {query}
 """
 
-    response = client.models.generate_content(
-        model="gemini-2.5-flash-lite",
-        contents=prompt
-    )
+    response = models.generate_content(prompt )
 
     return response.text, citations
+
 
