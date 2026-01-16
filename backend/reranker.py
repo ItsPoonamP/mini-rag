@@ -28,7 +28,7 @@ Passages:
 {passages}
 """
 
-    model = genai.GenerativeModel("gemini-1.5-flash-lite")
+    model = genai.GenerativeModel("gemini-1.5-flash")
     response = model.generate_content(prompt)
 
     order = response.text.strip()
@@ -41,3 +41,4 @@ Passages:
             pass
 
     return [chunks[i] for i in indices if i < len(chunks)][:top_n]
+
