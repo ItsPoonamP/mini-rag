@@ -1,5 +1,5 @@
 import os
-import google.genai as genai
+import google as genai
 
 from dotenv import load_dotenv
 
@@ -49,6 +49,7 @@ Passages:
 
     reranked = [chunks[i] for i in indices if i < len(chunks)]
     return reranked[:top_n]
+
 
 
 
