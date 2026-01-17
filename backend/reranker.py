@@ -1,5 +1,8 @@
+from google import genai
 import os
-import google.generativeai as genai
+
+client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -28,8 +31,9 @@ Passages:
 {passages}
 """
 
-    model = genai.GenerativeModel("gemini-2.5-flash")
-    response = model.generate_content(prompt)
+    
+    response = client.models.generate_content(model="gemini-2.5-flash",
+    contents=prompt)
 
     order = response.text.strip()
     indices = []
@@ -41,6 +45,7 @@ Passages:
             pass
 
     return [chunks[i] for i in indices if i < len(chunks)][:top_n]
+
 
 
 
