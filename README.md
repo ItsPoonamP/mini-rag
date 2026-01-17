@@ -150,3 +150,42 @@ Streaming answers
 Multi-document citation grouping
 Conversational memory support
 Evaluation metrics (Recall@K, MRR)
+
+# Sample Knowledge Document for RAG Evaluation
+
+## Document: Mini RAG System Overview
+
+The Mini RAG system is a retrieval-augmented generation pipeline designed to answer user queries using a combination of vector search and large language models. The system first ingests documents by splitting them into smaller text chunks. Each chunk is converted into a numerical embedding using the Gemini `text-embedding-004` model. These embeddings are stored in Pinecone, which acts as the vector database for similarity search.
+
+When a user submits a query, the query text is embedded using the same embedding model and compared against stored embeddings in Pinecone to retrieve the top-K most relevant chunks. These retrieved chunks may not always be perfectly ordered by relevance, so a reranking step is applied. The reranker uses a Gemini language model to reorder the retrieved chunks based on their semantic relevance to the query.
+
+After reranking, the top-N chunks are passed to a Gemini generative model (`gemini-2.5-flash`) along with the user query. The model generates a final answer using only the provided context. Each answer includes inline citations that correspond to the document chunks used, ensuring transparency and traceability of the generated response.
+
+This architecture improves factual accuracy by grounding the model’s responses in retrieved documents rather than relying solely on the model’s internal knowledge.
+
+---
+
+## Gold Question–Answer Set
+
+These questions are used to evaluate the correctness of the Mini RAG system.
+
+### Q1
+**Question:** What is the main purpose of the Mini RAG system?  
+**Answer:** The main purpose of the Mini RAG system is to answer user queries by combining document retrieval with large language model generation.
+
+### Q2
+**Question:** Which model is used to generate embeddings for document chunks?  
+**Answer:** The `text-embedding-004` model from Gemini is used to generate embeddings.
+
+### Q3
+**Question:** What role does Pinecone play in the system?  
+**Answer:** Pinecone stores the document embeddings and performs similarity search to retrieve relevant chunks.
+
+### Q4
+**Question:** Why is a reranking step applied after retrieval?  
+**Answer:** Reranking is applied to reorder retrieved chunks based on their semantic relevance to the user query.
+
+### Q5
+**Question:** Which Gemini model is used to generate the final answer?  
+**Answer:** The `gemini-2.5-flash` model is used to generate the final answer.
+
