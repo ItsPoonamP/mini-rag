@@ -6,7 +6,7 @@ client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 from dotenv import load_dotenv
 
 load_dotenv()
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
 
 def rerank(query: str, chunks: list, top_n: int = 5):
     if not chunks:
@@ -45,6 +45,7 @@ Passages:
             pass
 
     return [chunks[i] for i in indices if i < len(chunks)][:top_n]
+
 
 
 
