@@ -16,9 +16,10 @@ def embed_text(text: str):
     """
     response = client.models.embed_content(
         model="text-embedding-004",
-        content=text
+        contents=text
     )
     return response.embeddings[0].values
+
 
 
 
