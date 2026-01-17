@@ -5,6 +5,8 @@
 
 ## GitHub Repository
 - **Repo:** [https://github.com/ItsPoonamP/mini-rag](#)
+ ## Resume Link
+- **URL:** [https://drive.google.com/drive/folders/10nZb4vzsGZXrhFHa-uWslCOcj3oNfN7g?usp=sharing](#)
 
 ---
 ## Setup Instructions
