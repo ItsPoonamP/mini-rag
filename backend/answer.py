@@ -1,11 +1,11 @@
 import os
-import google.generativeai as genai
+from google import genai
+client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def generate_answer(query, retrieved_chunks):
     if not retrieved_chunks:
@@ -32,6 +32,7 @@ Question:
     response = genai.models.generate_content(model ="gemini-2.5-flash",content=prompt )
 
     return response.text, citations
+
 
 
 
