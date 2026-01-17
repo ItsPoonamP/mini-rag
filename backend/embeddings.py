@@ -1,10 +1,11 @@
+from dotenv import load_dotenv
+
+load_dotenv()
 from google import genai
 import os
 
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-from dotenv import load_dotenv
 
-load_dotenv()
 
 
 
@@ -17,7 +18,8 @@ def embed_text(text: str):
         model="text-embedding-004",
         content=text
     )
-    return response["embedding"]
+    return response.embedding
+
 
 
 
