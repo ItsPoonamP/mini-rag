@@ -1,10 +1,10 @@
 # Mini RAG Project – AI Engineer Assessment
 
 ## Live Demo
-- **URL:** [Insert your deployed app URL here](#)
+- **URL:** [https://mini-rag-lehspggeytczj9emkpk4mc.streamlit.app/](#)
 
 ## GitHub Repository
-- **Repo:** [Insert your GitHub repo link here](#)
+- **Repo:** [https://github.com/ItsPoonamP/mini-rag](#)
 
 ---
 ## Setup Instructions
